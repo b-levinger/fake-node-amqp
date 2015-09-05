@@ -1,0 +1,40 @@
+{
+  "name": "node-amqp-mock",
+  "version": "0.0.1",
+  "description": "Mock node-amqp module",
+  "main": "mockAmqp.js",
+  "scripts": {
+    "test": "mocha",
+    "testCoverage": "NODE_ENV=test mocha --require blanket --reporter html-cov > testCoverage.html; open testCoverage.html;"
+  },
+  "author": "Brandon Levinger",
+  "license": "MIT",
+  "dependencies": {
+    "amqp": "^0.2.4",
+    "q": "^1.4.1",
+    "underscore": "^1.8.3"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "lib",
+        "mockAmqp"
+      ],
+      "data-cover-never": [
+        "node_modules",
+        "test"
+      ],
+      "data-cover-reporter-options": {
+        "shortnames": true
+      }
+    }
+  },
+  "devDependencies": {
+    "blanket": "^1.1.7",
+    "chai": "^3.2.0",
+    "expect": "^1.9.0",
+    "mocha": "^2.3.0",
+    "sinon": "^1.15.4",
+    "sinon-chai": "^2.8.0"
+  }
+}
