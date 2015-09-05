@@ -108,7 +108,25 @@ describe("Exchanges", function() {
 
 		context("routing with", function() {
 
-			it("multiple bind matches should only publish to the queue one time");
+			it("multiple bind matches should only publish to the queue one time", function() {
+				var q1Promise = testUtils.createAndBindQueue("q1", {}, "*.*", connection, excTopic);
+				return Q.all([ q1Promise ]).spread(function(q1) {
+
+					var defer = Q.defer();
+					q1.bind(excTopic, "foo.*", function() {
+						defer.resolve();
+					});
+					q1.on("error", defer.reject);
+					return defer.promise.then(function() {
+						var spy1 = testUtils.spy(q1, "mockDataReceived");
+						excTopic.publish("foo.bar", "testMessage");
+						return Q.delay(1).then(function() {
+							expect(spy1).to.have.been.calledWith("testMessage");
+							expect(spy1.withArgs("testMessage").callCount).to.equal(1);
+						});
+					});
+				});
+			});
 
 			var checkRouteBinding = function(bindPattern, routeKey, expectMatch) {
 				var q1Promise = testUtils.createAndBindQueue("q1", {}, bindPattern, connection, excTopic);

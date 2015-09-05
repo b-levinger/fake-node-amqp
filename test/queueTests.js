@@ -73,6 +73,16 @@ describe("Queues", function() {
 		});
 	});
 
+	it("should bind to the default queue with routekey of the queue name", function(done) {
+		var spy;
+		var q = connection.queue("testQueue", {}, function() {
+			expect(spy).to.have.been.calledWith("", "testQueue");
+			done();
+		});
+		spy = testUtils.spy(q, "bind");
+		q.on("error", done);
+	});
+
 	context("binding", function() {
 
 		it("should accept exchange objects as the first parameter", function(done) {
@@ -125,6 +135,17 @@ describe("Queues", function() {
 				});
 			});
 			exchange.on("error", done);
+		});
+
+		it("should not emit queueBindOk for the default queue bind", function(done) {
+			var q = connection.queue("testQueue", {}, function() {
+				setTimeout(function() {
+					done();
+				}, 1);
+			});
+			q.on("queueBindOk", function() {
+				done(new Error("should not have triggered queueBindOk"));
+			});
 		});
 
 		it("should emit error with 404 if the exchange doesnt exist", function(done) {
