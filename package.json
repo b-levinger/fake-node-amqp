@@ -1,5 +1,5 @@
 {
-  "name": "fake-node-amqp",
+  "name": "fake-amqp",
   "version": "0.0.1",
 	"keywords" : [ "amqp", "fake", "testing", "mock" ],
   "description": "In memory mock implementation of the amqp module.",
