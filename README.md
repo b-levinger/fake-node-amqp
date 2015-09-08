@@ -1,8 +1,8 @@
 # Fake Amqp
 
-This is an in memory implementation of the [node-amqp](https://github.com/postwait/node-amqp) module for testing purposes.
+This is an in memory implementation of the [amqp](https://github.com/postwait/node-amqp) module for testing purposes.
 
-The aim of this project is to simulate the [node-amqp](https://github.com/postwait/node-amqp) module as best as possible to test various amqp interactions. It will produce realistic errors for various scenarios (e.g. exchange / queue doesn't exist or is locked with exclusive option).
+The aim of this project is to simulate the [amqp](https://github.com/postwait/node-amqp) module as best as possible to test various amqp interactions. It will produce realistic errors for various scenarios (e.g. exchange / queue doesn't exist or is locked with exclusive option).
 
 This is a work in progress, please log any issues you come across.
 
