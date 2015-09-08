@@ -2,12 +2,12 @@ var testUtils = require("./support.js");
 var _ = require("underscore");
 var Q = require("q");
 
-describe("mockAmqp", function() {
+describe("fakeAmqp", function() {
 
 	var mockAmqp;
 
 	beforeEach(function() {
-		mockAmqp = require("../mockAmqp.js");
+		mockAmqp = require("../fakeAmqp.js");
 	});
 
 	it("should create the default exchanges afer reset", function(done) {

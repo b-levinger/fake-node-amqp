@@ -1,8 +1,9 @@
 {
-  "name": "node-amqp-mock",
+  "name": "fake-node-amqp",
   "version": "0.0.1",
-  "description": "Mock library for amqp module",
-  "main": "mockAmqp.js",
+	"keywords" : [ "amqp", "fake", "testing", "mock" ],
+  "description": "In memory mock implementation of the amqp module.",
+  "main": "fakeAmqp.js",
   "scripts": {
     "test": "mocha",
     "testCoverage": "NODE_ENV=test mocha --require blanket --reporter html-cov > testCoverage.html; open testCoverage.html;"
@@ -29,6 +30,13 @@
         "shortnames": true
       }
     }
+  },
+  "repository" : { 
+  	"type" : "git",
+  	"url" : "git://github.com/brandonlevinger/fake-node-amqp.git"
+  }, 
+  "bugs" : {
+  	"url" : "http://github.com/brandonlevinger/fake-node-amqp/issues"
   },
   "devDependencies": {
     "blanket": "^1.1.7",

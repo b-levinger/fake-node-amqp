@@ -7,7 +7,7 @@ describe("Queues", function() {
 	var connection;
 
 	beforeEach(function(done) {
-		mockAmqp = require("../mockAmqp.js");
+		mockAmqp = require("../fakeAmqp.js");
 		connection = mockAmqp.createConnection(null, null, function() {
 			done();
 		});

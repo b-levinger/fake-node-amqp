@@ -5,7 +5,7 @@ var chai = require('chai');
 var sinonChai = require("sinon-chai");
 var _ = require("underscore");
 
-var mockAmqp = require("../mockAmqp.js");
+var mockAmqp = require("../fakeAmqp.js");
 
 chai.use(sinonChai);
 global.expect = chai.expect;

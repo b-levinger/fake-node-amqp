@@ -8,7 +8,7 @@ describe("Exchanges", function() {
 	var testerObj;
 
 	beforeEach(function(done) {
-		mockAmqp = require("../mockAmqp.js");
+		mockAmqp = require("../fakeAmqp.js");
 		testerObj = {
 			cb1 : function() {
 			},
