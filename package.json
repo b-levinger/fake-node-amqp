@@ -33,10 +33,10 @@
   },
   "repository" : { 
   	"type" : "git",
-  	"url" : "git://github.com/brandonlevinger/fake-node-amqp.git"
+  	"url" : "git://github.com/b-levinger/fake-node-amqp.git"
   }, 
   "bugs" : {
-  	"url" : "http://github.com/brandonlevinger/fake-node-amqp/issues"
+  	"url" : "http://github.com/b-levinger/fake-node-amqp/issues"
   },
   "devDependencies": {
     "blanket": "^1.1.7",
