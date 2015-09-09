@@ -152,7 +152,7 @@ describe("Queues", function() {
 					noDeclare : true
 				}).then(function(q) {
 					expect(q).to.be.ok;
-					return bindQueue(q, "amq.topic", "").then(function() {
+					return bindQueue(q, "amq.topic", "").delay(1).then(function() {
 						return Q.reject(new Error("expected 404 error"));
 					}, function(err) {
 						expect(err).to.be.ok;
@@ -520,7 +520,7 @@ describe("Queues", function() {
 							return subscribeQueue(q, {}, testerObj.cb2).then(function() {
 								return subscribeQueue(q, {}, testerObj.cb3);
 							});
-						}).then(function() {
+						}).delay(1).then(function() {
 							exchange.publish("", "data1");
 							exchange.publish("", "data2");
 							exchange.publish("", "data3");

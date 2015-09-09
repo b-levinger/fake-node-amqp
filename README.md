@@ -15,8 +15,9 @@ This is a work in progress, please log any issues you come across.
 
 You may wish to call reset in your afterEach helper to clear out the state and start fresh with the default exchanges:
 
-		afterEach(function () {
-			fakeAmqp.reset();
+		afterEach(function (done) {
+            // if your testing framework supports promises you can simply return the promise from reset()
+            fakeAmqp.reset().then(done);
 		});
 		
 ## Supported Features

@@ -170,7 +170,7 @@ describe("Exchanges", function() {
 					q1.subscribe(testerObj.cb1);
 
 					q1.on("error", defer.reject);
-					return defer.promise.then(function() {
+					return defer.promise.delay(1).then(function() {
 						excTopic.publish("foo.bar", "testMessage");
 						return Q.delay(1).then(function() {
 							expect(spy1).to.have.been.calledWith("testMessage");
